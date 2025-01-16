@@ -1,7 +1,7 @@
-import { HomePage } from "./modules/landing/pages/HomePage";
+import { DeshboardPage } from "./modules/landing/pages/DashboardPage";
 
 function App() {
-  return <HomePage />;
+  return <DeshboardPage />;
 }
 
 export default App;

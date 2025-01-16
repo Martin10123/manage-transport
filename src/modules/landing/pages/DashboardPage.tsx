@@ -9,7 +9,7 @@ import { HomeLayout } from "../layout/HomeLayout";
 
 import dataTable from "../../../MOCK_DATA.json";
 
-export const HomePage = () => {
+export const DeshboardPage = () => {
   return (
     <HomeLayout>
       <main className="p-4 container mx-auto sm:py-4 sm:px-0">
