@@ -1,4 +1,4 @@
-import { logo } from "../images";
+import { logo } from "@/images";
 
 export const Footer = () => {
   return (

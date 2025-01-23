@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
-import echarts from "../../../config/echartConfig";
-import { ECOptionEchart } from "../interfaces/EchartsInterfaces";
+import echarts from "@/config/echartConfig";
+import { ECOptionEchart } from "@/interfaces/EchartsInterfaces";
 
 interface EChartProps {
   options: ECOptionEchart;

@@ -1,4 +1,4 @@
-import { DeshboardPage } from "./modules/landing/pages/DashboardPage";
+import { DeshboardPage } from "@/modules/dashboard/pages/DashboardPage";
 
 function App() {
   return <DeshboardPage />;

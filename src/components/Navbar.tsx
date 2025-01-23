@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { logo } from "../images";
+import { logo } from "@/images";
 import { IoMdMenu } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
 
