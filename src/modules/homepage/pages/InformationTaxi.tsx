@@ -8,15 +8,26 @@ import { ButtonsInfoTaxi } from "../components/ButtonsInfoTaxi";
 import { ImagesTaxi } from "../components/ImagesTaxi";
 import { EChartComponent } from "@/components/EchartComponent";
 import { optionPieChart } from "../helpers/OptionsPieChart";
+import { SeeInfoSelectTaxi } from "../components/SeeInfoSelectTaxi";
+import { useState } from "react";
 
 export const InformationTaxi = () => {
+  const [openModalInfo, setOpenModalInfo] = useState(false);
+  const [nameOptionSelect, setnameOptionSelect] = useState("");
+
+  const handleOpenModalInfo = (name: string) => {
+    setOpenModalInfo(!openModalInfo);
+
+    setnameOptionSelect(name);
+  };
+
   return (
     <HomeLayout>
       <section className="p-4 container mx-auto sm:py-4 sm:px-0">
-        <div className="grid grid-cols-1 lg:grid-cols-[2fr,1fr] lg:gap-4 max-w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.5fr,1fr] lg:gap-4 max-w-full">
           <ImagesTaxi />
 
-          <InfoTaxi />
+          <InfoTaxi handleOpenModalInfo={handleOpenModalInfo} />
         </div>
 
         <div>
@@ -34,13 +45,20 @@ export const InformationTaxi = () => {
             </div>
           </div>
 
-          <HistoryMovements />
+          <HistoryMovements handleOpenModalInfo={handleOpenModalInfo} />
 
-          <ListTasks />
+          <ListTasks handleOpenModalInfo={handleOpenModalInfo} />
 
           <ButtonsInfoTaxi />
         </div>
       </section>
+
+      {openModalInfo && (
+        <SeeInfoSelectTaxi
+          nameOptionSelect={nameOptionSelect}
+          handleOpenModalInfo={handleOpenModalInfo}
+        />
+      )}
     </HomeLayout>
   );
 };

@@ -1,71 +1,23 @@
+import { dataInfoTaxi } from "../data/dataInfoTaxi";
 import { ItemInfoTaxi } from "./ItemInfoTaxi";
 import { ItemLastReview } from "./ItemLastReview";
 
-const dataInfoTaxi = [
-  {
-    label: "Estado",
-    value: "Activo",
-    classValue: "font-semibold text-green-500",
-  },
-  {
-    label: "Placa",
-    value: "ABC-123",
-    classValue: "font-semibold text-yellow-500",
-  },
-  {
-    label: "Marca",
-    value: "Chevrolet",
-    classValue: "font-semibold text-gray-800",
-  },
-  {
-    label: "Modelo",
-    value: "2020",
-    classValue: "font-semibold text-gray-800",
-  },
-  {
-    label: "Color",
-    value: "Rojo",
-    classValue: "font-semibold text-gray-800",
-  },
-  {
-    label: "Tipo",
-    value: "Sedan",
-    classValue: "font-semibold text-gray-800",
-  },
-  {
-    label: "En taller",
-    value: "2",
-    classValue: "font-semibold text-red-500",
-    classNa: "cursor-pointer",
-  },
-  {
-    label: "Mantenimientos",
-    value: "4",
-    classValue: "font-semibold text-red-500",
-    classNa: "cursor-pointer",
-  },
-  {
-    label: "Accidentes",
-    value: "3",
-    classValue: "font-semibold text-red-500",
-    classNa: "cursor-pointer",
-  },
-  {
-    label: "Multas",
-    value: "5",
-    classValue: "font-semibold text-red-500",
-    classNa: "cursor-pointer",
-  },
-];
+interface InfoTaxiProps {
+  handleOpenModalInfo: (name: string) => void;
+}
 
-export const InfoTaxi = () => {
+export const InfoTaxi = ({ handleOpenModalInfo }: InfoTaxiProps) => {
   return (
     <div className="mt-4 rounded-lg shadow-md p-4 bg-white sm:mt-0">
       <h2 className="text-3xl mb-4 font-bold text-gray-800">Taxi 1</h2>
 
       <ul className="grid grid-cols-2 gap-2">
         {dataInfoTaxi.map((item) => (
-          <ItemInfoTaxi key={item.value} {...item} />
+          <ItemInfoTaxi
+            key={item.value}
+            {...item}
+            handleOpenModalInfo={handleOpenModalInfo}
+          />
         ))}
       </ul>
 
@@ -76,28 +28,31 @@ export const InfoTaxi = () => {
         </h2>
 
         <p className="text-base py-1 rounded-lg text-black">
-          Estado: <p className="text-green-500">Activo</p>
+          Estado: <span className="block text-green-500">Activo</span>
         </p>
 
         <div className="grid grid-cols-2 gap-2">
           <p className="text-base py-1 rounded-lg text-black">
-            Lunes: <p className="text-black font-semibold">1-2</p>
+            Lunes: <span className="block  text-black font-semibold">1-2</span>
           </p>
 
           <p className="text-base py-1 rounded-lg text-gray-500">
-            Martes: <p className="text-red-500 font-semibold">3-4</p>
+            Martes:{" "}
+            <span className="block  text-red-500 font-semibold">3-4</span>
           </p>
 
           <p className="text-base py-1 rounded-lg text-gray-500">
-            Miercoles: <p className="text-black font-semibold">5-6</p>
+            Miercoles:{" "}
+            <span className="block  text-black font-semibold">5-6</span>
           </p>
 
           <p className="text-base py-1 rounded-lg text-gray-500">
-            Jueves: <p className="text-black font-semibold">7-8</p>
+            Jueves: <span className="block  text-black font-semibold">7-8</span>
           </p>
 
           <p className="text-base py-1 rounded-lg text-gray-500">
-            Viernes: <p className="text-red-500 font-semibold">9-0</p>
+            Viernes:{" "}
+            <span className="block  text-red-500 font-semibold">9-0</span>
           </p>
         </div>
       </div>

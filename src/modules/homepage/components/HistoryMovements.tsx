@@ -2,7 +2,13 @@ import { TBodyTRTable } from "./TBodyTRTable";
 import { movementsData } from "../data/dataTakeMovement";
 import { TbReportMoney } from "react-icons/tb";
 
-export const HistoryMovements = () => {
+interface HistoryMovementsProps {
+  handleOpenModalInfo: (name: string) => void;
+}
+
+export const HistoryMovements = ({
+  handleOpenModalInfo,
+}: HistoryMovementsProps) => {
   return (
     <div className="mt-4 rounded-lg shadow-md p-4 bg-white">
       <div className="flex justify-between items-center gap-2 mb-4">
@@ -10,7 +16,12 @@ export const HistoryMovements = () => {
           Historial de movimientos
         </h3>
 
-        <TbReportMoney className="cursor-pointer" size={25} />
+        <button
+          className="bg-gray-100 text-gray-800 rounded-lg p-2 w-max duration-200 hover:bg-gray-200 hover:shadow-lg"
+          onClick={() => handleOpenModalInfo("movimientos")}
+        >
+          <TbReportMoney className="cursor-pointer" size={25} />
+        </button>
       </div>
 
       <div className="overflow-x-auto">
@@ -35,9 +46,11 @@ export const HistoryMovements = () => {
         </table>
       </div>
 
-      <div className="flex justify-between items-center gap-4 md:justify-end">
+      <div className="flex justify-between items-center gap-4 mt-4 md:justify-end">
         <div>
-          <h2>Total ingresos: </h2>
+          <h2 className="text-sm font-semibold text-gray-500">
+            Total ingresos:{" "}
+          </h2>
           <p className="text-xl font-bold text-gray-800">
             $200.000{" "}
             <span className="ml-2 text-lg font-normal text-green-500">
@@ -46,7 +59,9 @@ export const HistoryMovements = () => {
           </p>
         </div>
         <div>
-          <h2>Total egresos: </h2>
+          <h2 className="text-sm font-semibold text-gray-500">
+            Total egresos:{" "}
+          </h2>
           <p className="text-xl font-bold text-gray-800">
             $200.000{" "}
             <span className="ml-2 text-lg font-normal text-red-500">+10%</span>

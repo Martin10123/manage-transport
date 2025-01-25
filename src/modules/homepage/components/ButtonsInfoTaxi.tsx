@@ -19,12 +19,12 @@ export const ButtonsInfoTaxi = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 mt-4">
-        <button className="bg-blue-500 text-white rounded-lg py-2">
+      <div className="flex items-center gap-2 mt-6 sm:justify-end">
+        <button className="bg-blue-500 text-white rounded-lg py-2 px-4 w-max sm:py-3 sm:px-6 duration-200 hover:bg-blue-600 hover:shadow-lg">
           Enviar al taller
         </button>
 
-        <button className="bg-gray-300 text-black rounded-lg py-2">
+        <button className="bg-gray-300 text-black rounded-lg py-2 px-4 w-max sm:py-3 sm:px-6 duration-200 hover:bg-gray-400 hover:shadow-lg">
           asignar conductor
         </button>
       </div>

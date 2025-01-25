@@ -2,7 +2,11 @@ import { CiViewTable } from "react-icons/ci";
 import { tasksData } from "../data/dataTasks";
 import { TBodyTRTable } from "./TBodyTRTable";
 
-export const ListTasks = () => {
+interface ListTasksProps {
+  handleOpenModalInfo: (name: string) => void;
+}
+
+export const ListTasks = ({ handleOpenModalInfo }: ListTasksProps) => {
   return (
     <div className="mt-4 rounded-lg shadow-md p-4 bg-white">
       <div className="flex justify-between items-center gap-2 mb-4">
@@ -10,7 +14,12 @@ export const ListTasks = () => {
           Lista de tareas
         </h3>
 
-        <CiViewTable className="cursor-pointer" size={25} />
+        <button
+          className="bg-gray-100 text-gray-800 rounded-lg p-2 w-max duration-200 hover:bg-gray-200 hover:shadow-lg"
+          onClick={() => handleOpenModalInfo("tareas")}
+        >
+          <CiViewTable className="cursor-pointer" size={25} />
+        </button>
       </div>
 
       <div className="overflow-x-auto">
