@@ -1,7 +1,7 @@
-import { DeshboardPage } from "@/modules/dashboard/pages/DashboardPage";
+import { InformationTaxi } from "./modules/homepage/pages/InformationTaxi";
 
 function App() {
-  return <DeshboardPage />;
+  return <InformationTaxi />;
 }
 
 export default App;

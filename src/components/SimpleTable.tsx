@@ -11,15 +11,22 @@ import {
 import { useState, useMemo } from "react";
 import { THeadTable } from "./THeadTable";
 import { PaginationButtons } from "./PaginationButtons";
+import { BsThreeDots } from "react-icons/bs";
 
 interface SimpleTableProps<T> {
   data: T[];
   columns: ColumnDef<T, unknown>[];
+  activeOptions?: boolean;
 }
 
-export const SimpleTable = <T,>({ data, columns }: SimpleTableProps<T>) => {
+export const SimpleTable = <T,>({
+  data,
+  columns,
+  activeOptions,
+}: SimpleTableProps<T>) => {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [filtering, setFiltering] = useState("");
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const memoizedColumns = useMemo(() => columns, [columns]);
 
@@ -38,11 +45,15 @@ export const SimpleTable = <T,>({ data, columns }: SimpleTableProps<T>) => {
     getFilteredRowModel: getFilteredRowModel(),
   });
 
+  const toggleDropdown = (rowId: string) => {
+    setOpenDropdown(openDropdown === rowId ? null : rowId); // Alternar el dropdown
+  };
+
   return (
     <div className="w-full mt-4 bg-white rounded-lg shadow-md border">
       <div className="p-4 border-b-2 mb-4">
         <input
-          className="w-full p-3.5 border border-gray-300 rounded-md "
+          className="w-full p-3.5 border border-gray-300 rounded-md"
           type="text"
           placeholder="Buscar..."
           value={filtering}
@@ -76,6 +87,33 @@ export const SimpleTable = <T,>({ data, columns }: SimpleTableProps<T>) => {
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </td>
                 ))}
+
+                {activeOptions && (
+                  <td className="p-6 border-b border-gray-300">
+                    <div className="relative">
+                      <BsThreeDots
+                        onClick={() => toggleDropdown(row.id)} // Abre el dropdown al hacer clic
+                        className="cursor-pointer"
+                      />
+
+                      {openDropdown === row.id && (
+                        <div className="absolute right-0 mt-2 w-max bg-white border rounded-md shadow-lg z-[999]">
+                          <ul>
+                            <li className="px-4 py-2 cursor-pointer hover:bg-gray-200">
+                              Ver
+                            </li>
+                            <li className="px-4 py-2 cursor-pointer hover:bg-gray-200">
+                              Editar
+                            </li>
+                            <li className="px-4 py-2 cursor-pointer text-red-500 hover:bg-gray-200">
+                              Eliminar
+                            </li>
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  </td>
+                )}
               </tr>
             ))}
           </tbody>
