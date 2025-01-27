@@ -3,6 +3,8 @@ import { logo } from "@/images";
 import { IoMdMenu } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
 import { SocialMedia } from "./SocialMedia";
+import { NavLink } from "react-router-dom";
+import { routes } from "@/routes/routes";
 
 export const Navbar = () => {
   const [openNavDrop, setOpenNavDrop] = useState(false);
@@ -39,18 +41,22 @@ export const Navbar = () => {
           }`}
         >
           <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5">
-            <button className="font-medium text-blue-500 focus:outline-none">
-              Dashboard
-            </button>
-            <button className="font-medium text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400">
-              Inicio
-            </button>
-            <button className="font-medium text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400">
-              Taller
-            </button>
-            <button className="font-medium text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400 border-t border-gray-200 pt-4 sm:p-0 sm:border-none">
-              Configuraciones
-            </button>
+            {routes.map((routes) => (
+              <NavLink
+                key={routes.name}
+                to={routes.to}
+                className={({ isActive }) => {
+                  return `font-medium focus:outline-none flex justify-center items-center ${
+                    isActive
+                      ? "text-blue-500 hover:text-blue-700"
+                      : "text-gray-500 hover:text-gray-900"
+                  }`;
+                }}
+              >
+                {routes.name}
+              </NavLink>
+            ))}
+
             <button className="font-medium text-red-500 hover:text-red-600 focus:outline-none focus:text-red-400">
               Cerrar sesión
             </button>
