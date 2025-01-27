@@ -1,7 +1,7 @@
 interface CardItemTaxiProps {
   icon: string;
   title: string;
-  total: number;
+  total: number | string;
   description: string;
 }
 

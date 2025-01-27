@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { logo } from "../images";
+import { logo } from "@/images";
 import { IoMdMenu } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
+import { SocialMedia } from "./SocialMedia";
 
 export const Navbar = () => {
   const [openNavDrop, setOpenNavDrop] = useState(false);
@@ -15,7 +16,7 @@ export const Navbar = () => {
       <nav className="w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between">
         <div className="flex items-center justify-between">
           <div className="w-max flex-none text-xl font-semibold focus:outline-none focus:opacity-80">
-            <div className="inline-flex items-center gap-x-2 text-xl font-semibold">
+            <div className="inline-flex items-center gap-x-2 text-xl font-semibold cursor-pointer">
               <img className="w-10 h-auto" src={logo} alt="Logo" />
               <p>MT</p>
             </div>
@@ -53,6 +54,10 @@ export const Navbar = () => {
             <button className="font-medium text-red-500 hover:text-red-600 focus:outline-none focus:text-red-400">
               Cerrar sesión
             </button>
+          </div>
+
+          <div className="flex justify-center border-t border-gray-200 mt-4 sm:hidden">
+            <SocialMedia />
           </div>
         </div>
       </nav>

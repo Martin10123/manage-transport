@@ -1,13 +1,13 @@
-import { SimpleTable } from "../../../components/SimpleTable";
-import { CardItemTaxi } from "../components/CardItemTaxi";
-import { EChartComponent } from "../components/EchartComponent";
-import { columnsData } from "../data/columnTableFake";
-import { optionLineEchart } from "../helpers/echartsData";
-import { optionsPieChart } from "../helpers/echartsDataBar";
-import { optionBarLine } from "../helpers/echartsDataRace";
-import { HomeLayout } from "../layout/HomeLayout";
+import { SimpleTable } from "@/components/SimpleTable";
+import { CardItemTaxi } from "@/components/CardItemTaxi";
+import { EChartComponent } from "@/components/EchartComponent";
+import { columnsData } from "@/data/columnTableFake";
+import { optionLineEchart } from "@/helpers/echartsData";
+import { optionsPieChart } from "@/helpers/echartsDataBar";
+import { optionBarLine } from "@/helpers/echartsDataRace";
+import { HomeLayout } from "@/layout/HomeLayout";
 
-import dataTable from "../../../MOCK_DATA.json";
+import dataTable from "@/MOCK_DATA.json";
 
 export const DeshboardPage = () => {
   return (
