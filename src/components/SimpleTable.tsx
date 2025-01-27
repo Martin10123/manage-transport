@@ -12,6 +12,7 @@ import { useState, useMemo } from "react";
 import { THeadTable } from "./THeadTable";
 import { PaginationButtons } from "./PaginationButtons";
 import { BsThreeDots } from "react-icons/bs";
+import { useCloseModal } from "@/hooks/useCloseClickOutside";
 
 interface SimpleTableProps<T> {
   data: T[];
@@ -29,6 +30,9 @@ export const SimpleTable = <T,>({
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const memoizedColumns = useMemo(() => columns, [columns]);
+  const refDropdown = useCloseModal<HTMLDivElement>(() =>
+    setOpenDropdown(null)
+  );
 
   const table = useReactTable({
     data,
@@ -97,7 +101,10 @@ export const SimpleTable = <T,>({
                       />
 
                       {openDropdown === row.id && (
-                        <div className="absolute right-0 mt-2 w-max bg-white border rounded-md shadow-lg z-[999]">
+                        <div
+                          className="absolute right-0 mt-2 w-max bg-white border rounded-md shadow-lg z-[999]"
+                          ref={refDropdown}
+                        >
                           <ul>
                             <li className="px-4 py-2 cursor-pointer hover:bg-gray-200">
                               Ver
