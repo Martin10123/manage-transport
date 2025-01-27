@@ -46,3 +46,5 @@ export const HomePage = () => {
     </HomeLayout>
   );
 };
+
+export default HomePage;
