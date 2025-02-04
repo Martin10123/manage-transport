@@ -17,6 +17,9 @@ const DetailsTaxiGarage = lazy(
   () => import("@/modules/garage/pages/DetailsTaxiGarage")
 );
 const ProfilePage = lazy(() => import("@/modules/profile/pages/ProfilePage"));
+const InformationTaxi = lazy(
+  () => import("@/modules/homepage/pages/InformationTaxi")
+);
 
 export const routes: Route[] = [
   {
@@ -30,6 +33,13 @@ export const routes: Route[] = [
     path: "home",
     Component: HomePage,
     name: "Inicio",
+  },
+  {
+    to: "/taxi/:taxiId",
+    path: "taxi/:taxiId",
+    Component: InformationTaxi,
+    name: "Información de taxi",
+    hiddenInNav: true,
   },
   {
     to: "/garage",
