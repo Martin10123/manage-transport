@@ -5,7 +5,7 @@ import dayjs from "dayjs";
 export const columnsDataMoney: ColumnDef<{
   id: number;
   date: string;
-  money: string;
+  money: number;
   description: string;
 }>[] = [
   {

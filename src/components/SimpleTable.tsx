@@ -53,7 +53,7 @@ export const SimpleTable = <T,>({
   });
 
   const toggleDropdown = (rowId: string) => {
-    setOpenDropdown(openDropdown === rowId ? null : rowId); // Alternar el dropdown
+    setOpenDropdown(openDropdown === rowId ? null : rowId);
   };
 
   return (
