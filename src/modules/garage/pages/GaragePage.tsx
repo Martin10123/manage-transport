@@ -111,6 +111,9 @@ export const GaragePage = () => {
             <CardTaxiGarage />
             <CardTaxiGarage />
             <CardTaxiGarage />
+            <CardTaxiGarage />
+            <CardTaxiGarage />
+            <CardTaxiGarage />
           </div>
         </div>
       </section>

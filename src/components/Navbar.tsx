@@ -47,6 +47,8 @@ export const Navbar = () => {
                 to={routes.to}
                 className={({ isActive }) => {
                   return `font-medium focus:outline-none flex justify-center items-center ${
+                    routes.hiddenInNav ? "hidden" : ""
+                  } ${
                     isActive
                       ? "text-blue-500 hover:text-blue-700"
                       : "text-gray-500 hover:text-gray-900"

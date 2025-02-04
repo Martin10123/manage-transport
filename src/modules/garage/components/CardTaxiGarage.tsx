@@ -1,4 +1,5 @@
 import { avatar, taxi1 } from "@/images";
+import { Link } from "react-router-dom";
 
 export const CardTaxiGarage = () => {
   return (
@@ -42,11 +43,12 @@ export const CardTaxiGarage = () => {
           </div>
         </div>
 
-        <div>
-          <button className="text-blue-500 hover:text-blue-600 focus:outline-none">
-            Detalles
-          </button>
-        </div>
+        <Link
+          className="text-blue-500 hover:text-blue-600 focus:outline-none"
+          to="/garage/details"
+        >
+          Detalles
+        </Link>
       </div>
     </div>
   );

@@ -8,13 +8,15 @@ interface Route {
   path: string;
   Component: LazyExoticComponent<JSXComponent> | JSXComponent;
   name: string;
+  hiddenInNav?: boolean;
 }
 
 const HomePage = lazy(() => import("@/modules/homepage/pages/HomePage"));
 const GaragePage = lazy(() => import("@/modules/garage/pages/GaragePage"));
-const SettingsPage = lazy(
-  () => import("@/modules/settings/pages/SettingsPage")
+const DetailsTaxiGarage = lazy(
+  () => import("@/modules/garage/pages/DetailsTaxiGarage")
 );
+const ProfilePage = lazy(() => import("@/modules/profile/pages/ProfilePage"));
 
 export const routes: Route[] = [
   {
@@ -36,9 +38,16 @@ export const routes: Route[] = [
     name: "Taller",
   },
   {
-    to: "/settings",
-    path: "settings",
-    Component: SettingsPage,
-    name: "Configuraciones",
+    to: "/garage/:taxiId",
+    path: "garage/:taxiId",
+    Component: DetailsTaxiGarage,
+    name: "Detalle de taxi",
+    hiddenInNav: true,
+  },
+  {
+    to: "/profile",
+    path: "profile",
+    Component: ProfilePage,
+    name: "Perfil",
   },
 ];

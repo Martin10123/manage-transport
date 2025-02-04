@@ -1,6 +1,6 @@
 import { HomeLayout } from "@/layout/HomeLayout";
 
-export const SettingsPage = () => {
+export const ProfilePage = () => {
   return (
     <HomeLayout>
       <section className="p-4 container mx-auto sm:py-4 sm:px-0">
@@ -10,4 +10,4 @@ export const SettingsPage = () => {
   );
 };
 
-export default SettingsPage;
+export default ProfilePage;
