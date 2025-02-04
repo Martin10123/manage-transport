@@ -40,7 +40,12 @@ export const HomePage = () => {
         </div>
 
         <div>
-          <SimpleTable data={dataTable} columns={columnsData} activeOptions />
+          <SimpleTable
+            data={dataTable}
+            columns={columnsData}
+            linkToSeeDropdown="/taxi/detail"
+            activeOptions
+          />
         </div>
       </section>
     </HomeLayout>

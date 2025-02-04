@@ -13,17 +13,20 @@ import { THeadTable } from "./THeadTable";
 import { PaginationButtons } from "./PaginationButtons";
 import { BsThreeDots } from "react-icons/bs";
 import { useCloseModal } from "@/hooks/useCloseClickOutside";
+import { Link } from "react-router-dom";
 
 interface SimpleTableProps<T> {
   data: T[];
   columns: ColumnDef<T, unknown>[];
   activeOptions?: boolean;
+  linkToSeeDropdown?: string;
 }
 
 export const SimpleTable = <T,>({
   data,
   columns,
   activeOptions,
+  linkToSeeDropdown,
 }: SimpleTableProps<T>) => {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [filtering, setFiltering] = useState("");
@@ -106,9 +109,12 @@ export const SimpleTable = <T,>({
                           ref={refDropdown}
                         >
                           <ul>
-                            <li className="px-4 py-2 cursor-pointer hover:bg-gray-200">
-                              Ver
-                            </li>
+                            <Link
+                              to={linkToSeeDropdown || ""}
+                              className="px-4 py-2 flex cursor-pointer hover:bg-gray-200"
+                            >
+                              <li>Ver</li>
+                            </Link>
                             <li className="px-4 py-2 cursor-pointer hover:bg-gray-200">
                               Editar
                             </li>

@@ -1,3 +1,4 @@
+import { formatToColombianPesos } from "@/helpers/convertMoney";
 import { ColumnDef } from "@tanstack/react-table";
 import dayjs from "dayjs";
 
@@ -23,5 +24,7 @@ export const columnsDataMoney: ColumnDef<{
   {
     header: "Monto",
     accessorKey: "money",
+    cell: ({ getValue }) =>
+      `${formatToColombianPesos(getValue() as number)} pesos`,
   },
 ];
